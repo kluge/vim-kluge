@@ -7,8 +7,7 @@ set guifont=DejaVu\ Sans\ Mono\ 8
 " no menubar
 set guioptions-=m
 
-let psc_fontface='mixed' " use bold text in highlighting (PS_color)
-colorscheme ps_color
+colorscheme peaksea
 syntax enable
 
 " adjust size

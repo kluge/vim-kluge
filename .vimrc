@@ -56,6 +56,9 @@ vnoremap < <gv
 vnoremap > >gv
 " }}}1
 
+source ~/.vim/bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect()
+
 " FILE TYPE DEPENDENT STUFF {{{1
 " (last section because might override common preferences)
 
@@ -139,14 +142,13 @@ set showcmd " show uncompleted commands on status line
 set noshowmatch
 set scrolloff=3 " keep some context between current line and window border
 
-" Use PS_cool syntax highlighting
-let psc_style='cool'
+" Use Peaksea color scheme
 set background=dark
 " if this is not a GVim, we'll choose the colorscheme and enable syntax
 " for GVim we can't do it yet because mixed fontface is set in .gvimrc
 " (it's not supported in console)
 if !has("gui_running")
-    colorscheme ps_color
+    colorscheme peaksea
     syntax enable
 endif
 set guioptions-=T " no toolbar in GUI (too late to set in .gvimrc)
