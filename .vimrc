@@ -35,12 +35,22 @@ set ignorecase " ignore case in searches...
 set smartcase  " ...unless the pattern contains upper-case letters
 set incsearch " search while entering pattern
 set hlsearch " highlight search patterns
+set gdefault " substitute globally on lines by default
 " }}}1
 
 " OWN COMMANDS, GLOBAL MAPPINGS AND ABBREVIATIONS {{{1
+
+
 " move to the directory of current file
 command! CD cd %:p:h
 
+" use comma as the leader
+let mapleader = ","
+" get rid of the search highlights
+nnoremap <leader><space> :noh<cr>
+" use normal regexps instead of Vim's own syntax
+nnoremap / /\v
+vnoremap / /\v
 " map  to  as it is clumsy to hit
 map  
 " 'a is practically never the intended behaviour and `a is so hard to write
@@ -120,7 +130,7 @@ let g:haddock_docdir="/usr/share/doc/ghc6-doc/html/"
 let g:haddock_indexfiledir="/home/kluge/.vim/"
 augroup Haskell
     autocmd!
-    autocmd BufEnter *.hs compiler ghc
+    " autocmd BufEnter *.hs compiler ghc
     " Haskell layout is not based on fixed tab stops
     autocmd BufEnter *.hs setlocal noshiftround
     autocmd BufEnter *.hs setlocal formatoptions=crq
@@ -183,10 +193,6 @@ set grepprg=grep\ -nH\ $*
 " -- SuperTab -- {{{2
 " use omnicompletion by default
 "let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
-" }}}2
-" -- git-commit -- {{{2
-" split automatically with horizontal split
-let g:git_diff_spawn_mode = 1
 " }}}2
 " -- NERD_commenter -- {{{2
 "" map ,cc to place comment markers at first column
