@@ -56,8 +56,10 @@ map  
 " 'a is practically never the intended behaviour and `a is so hard to write
 " that let's make ' to work like `
 map ' `
-" map <F5> to add a date in ISO 8601 format 
+" map <F4> and <F5> to add a date in ISO 8601 format 
+imap <F4> <C-R>=strftime("%FT%R")<CR>
 imap <F5> <C-R>=strftime("%F %R")<CR>
+cmap <F5> <C-R>=strftime("%F")<CR>
 " map Ctrl+A to begin omni completion
 imap <C-A> <C-X><C-O>
 
@@ -141,6 +143,14 @@ augroup END
 augroup Mail
     autocmd!
     autocmd FileType mail set nocindent noautoindent
+augroup END
+" }}}2
+
+" -- Markdown -- {{{2
+augroup Markdown
+    autocmd!
+    autocmd FileType markdown set textwidth=79
+augroup END
 " }}}2
 
 
@@ -191,8 +201,12 @@ let OmniCpp_NamespaceSearch = 2
 set grepprg=grep\ -nH\ $*
 " }}}2
 " -- SuperTab -- {{{2
-" use omnicompletion by default
-"let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabMappingForward = '<C-Space>'
+let g:SuperTabMappingBackward = '<S-C-Space>'
+" }}}2
+" -- delimitMate -- {{{2
+imap <S-Space> <Plug>delimitMateS-Tab
 " }}}2
 " -- NERD_commenter -- {{{2
 "" map ,cc to place comment markers at first column
