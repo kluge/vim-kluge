@@ -82,6 +82,9 @@ filetype plugin indent on
 augroup VimScript
     autocmd!
     autocmd FileType vim set formatoptions=crq
+    " snipMate snippets have to be defined with hard tabs
+    autocmd BufRead *.snippet set noexpandtab shiftwidth=8
+    autocmd BufNewFile *.snippet set noexpandtab
 augroup END " }}}2
 
 " -- Perl scripts -- {{{2
@@ -153,6 +156,13 @@ augroup Markdown
 augroup END
 " }}}2
 
+" -- Django -- {{{2
+augroup Django
+    autocmd!
+    autocmd BufRead *.html set filetype=htmldjango.html
+    autocmd BufNewFile *.html set filetype=htmldjango.html
+augroup END
+" }}}2
 
 " }}}1
 
@@ -200,13 +210,8 @@ let OmniCpp_NamespaceSearch = 2
 " This affects whole Vim, but it is there because Latex-Suite needs it.
 set grepprg=grep\ -nH\ $*
 " }}}2
-" -- SuperTab -- {{{2
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabMappingForward = '<C-Space>'
-let g:SuperTabMappingBackward = '<S-C-Space>'
-" }}}2
 " -- delimitMate -- {{{2
-imap <S-Space> <Plug>delimitMateS-Tab
+imap <S-Space> <C-R>=delimitMate#JumpAny("\<S-Space>")<CR>
 " }}}2
 " -- NERD_commenter -- {{{2
 "" map ,cc to place comment markers at first column
