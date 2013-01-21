@@ -210,11 +210,6 @@ let OmniCpp_NamespaceSearch = 2
 " This affects whole Vim, but it is there because Latex-Suite needs it.
 set grepprg=grep\ -nH\ $*
 " }}}2
-" -- SuperTab -- {{{2
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabMappingForward = '<C-Space>'
-let g:SuperTabMappingBackward = '<S-C-Space>'
-" }}}2
 " -- delimitMate -- {{{2
 imap <S-Space> <C-R>=delimitMate#JumpAny("\<S-Space>")<CR>
 " }}}2
