@@ -186,36 +186,4 @@ highlight link WhitespaceEOL ErrorMsg
 match WhitespaceEOL /\s\+\%#\@!$/ " trailing whitespace without cursor
 " }}}1
 
-" SCRIPT OPTIONS {{{1
-" -- MiniBufExplorer -- {{{2
-let g:miniBufExplMapWindowNavVim = 1
-" }}}2
-" -- 2Html -- {{{2
-let html_use_css='1'
-" }}}2
-" -- Taglist -- {{{2
-" show a tags menu
-let Tlist_Show_Menu=1
-" single mouse click jumps to tag definition
-let Tlist_Use_SingleClick=1
-" }}}2
-" -- OmniCppCompletion -- {{{2
-" search namespaces also from included files
-let OmniCpp_NamespaceSearch = 2
-" }}}2
-" -- Latex-Suite -- {{{2
-" This affects whole Vim, but it is there because Latex-Suite needs it.
-set grepprg=grep\ -nH\ $*
-" }}}2
-" -- delimitMate -- {{{2
-imap <S-Space> <C-R>=delimitMate#JumpAny("\<S-Space>")<CR>
-" }}}2
-" -- NERD_commenter -- {{{2
-"" map ,cc to place comment markers at first column
-let NERDComAlignLeftMap=",cc"
-let NERDComLineMap=",cl"
-let NERDSpaceDelims=1
-" }}}2
-"}}}1
-
 " vim: set fen fdm=marker norl tw=78 fo=crq:
