@@ -68,9 +68,6 @@ vnoremap < <gv
 vnoremap > >gv
 " }}}1
 
-source ~/.vim/bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-
 " FILE TYPE DEPENDENT STUFF {{{1
 " (last section because might override common preferences)
 

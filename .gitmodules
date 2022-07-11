@@ -1,0 +1,3 @@
+[submodule "pack/plugins/start/vim-gnupg"]
+	path = pack/plugins/start/vim-gnupg
+	url = git@github.com:jamessan/vim-gnupg.git
